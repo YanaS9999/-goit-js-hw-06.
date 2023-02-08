@@ -6,11 +6,12 @@
 
     Для додавання стилів використовуй CSS-класи valid і invalid, які ми вже додали у вихідні файли завдання.
  */
+
 const textInput = document.querySelector("#validation-input");
 
 textInput.addEventListener("blur", (event) => {
-  if (textInput.value.length === Number(textInput.dataset.length)) {
-    textInput.classList.remove("invalid");
+  textInput.classList.remove("invalid", "valid");
+  if (textInput.value.trim().length === Number(textInput.dataset.length)) {
     return textInput.classList.add("valid");
   }
   return textInput.classList.add("invalid");

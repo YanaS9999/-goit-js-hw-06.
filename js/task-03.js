@@ -20,11 +20,12 @@ const images = [
     alt: "Group of Horses Running",
   },
 ];
-const allImages = document.querySelector(".gallery");
-console.log(allImages);
 
-const imagesMarkup = ({ url, alt }) => {
-  return '<li class ="gallery__item"><img src ="${url}" alt = "${alt}" width = "320"></li>';
-};
-const imagesList = images.map(imagesMarkup).join("");
-allImages.insertAdjacentHTML("afterbegin", imagesList);
+const listOfGallaryEl = document.querySelector(".gallery");
+const markup = images
+  .map(
+    ({ url, alt }) =>
+      `<li class="gallery__item"><img src="${url}" alt="${alt}" width="300"></li>`
+  )
+  .join("");
+listOfGallaryEl.insertAdjacentHTML("afterend", markup);
